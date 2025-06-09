@@ -383,10 +383,10 @@ class GetDelegate extends RouterDelegate<RouteDecoder>
         PreventDuplicateHandlingMode.reorderRoutes,
   }) async {
     routeName ??= _cleanRouteName("/${page.runtimeType}");
-    // if (preventDuplicateHandlingMode ==
-    //PreventDuplicateHandlingMode.Recreate) {
-    //   routeName = routeName + page.hashCode.toString();
-    // }
+    if (preventDuplicateHandlingMode ==
+    PreventDuplicateHandlingMode.recreate) {
+      routeName = routeName + page.hashCode.toString();
+    }
 
     final getPage = GetPage<T>(
       name: routeName,
